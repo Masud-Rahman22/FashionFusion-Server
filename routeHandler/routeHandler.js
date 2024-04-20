@@ -47,5 +47,19 @@ router.get('/menProducts', async (req, res) => {
         });
     }
 })
+router.get('/menProducts/:id', async (req, res) => {
+    try {
+        const menProducts = await menProduct.findOne({ _id: req.params.id })
+        // select method to select specific fields, limit method for specific todo
+        if (!menProducts) {
+            return res.status(404).json({ message: 'No products found' })
+        }
+        return res.status(200).json(menProducts)
+    } catch (error) {
+        res.status(500).json({
+            error: "There was a server side error!"
+        });
+    }
+})
 
 module.exports = router;
