@@ -14,12 +14,6 @@ const menProductsSchema = mongoose.Schema({
     colors: {
         type: Array,
     },
-    // styles: {
-    //     type: Array
-    // },
-    // fabrics: {
-    //     type: Array
-    // }
 })
 
 module.exports = menProductsSchema;
