@@ -192,5 +192,17 @@ router.get('/cartItem', async (req, res) => {
         });
     }
 })
+router.delete('/cartItem/:id', async (req, res) => {
+    try {
+        await cartItems.deleteOne({ _id: req.params.id})
+        res.status(200).json({
+            message: "cart's item was deleted successfully"
+        });
+    } catch (error) {
+        res.status(500).json({
+            error: "There was a server side error!"
+        });
+    }
+})
 
 module.exports = router;
